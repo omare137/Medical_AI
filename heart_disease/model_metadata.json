@@ -1,0 +1,28 @@
+{
+    "best_model_name": "Random Forest",
+    "test_accuracy": 0.8985507246376812,
+    "test_precision": 0.9428571428571428,
+    "test_recall": 0.868421052631579,
+    "test_f1": 0.9041095890410958,
+    "test_roc_auc": 0.9495967741935484,
+    "feature_names": [
+        "Age",
+        "Sex",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "ChestPainType_TA",
+        "RestingECG_LVH",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up"
+    ]
+}

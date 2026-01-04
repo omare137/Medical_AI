@@ -1,0 +1,136 @@
+# ============================================================
+# Medical AI Project - .gitignore
+# ============================================================
+
+# --------------------- Python ---------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# --------------------- Jupyter ---------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# --------------------- IDEs ---------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# --------------------- Large Data Files ---------------------
+# PTB-XL dataset (43,000+ ECG files)
+ptb-xl/ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.1/
+ptb-xl/records100/
+ptb-xl/records500/
+
+# MIT-BIH dataset
+ecg2.0/mit-bih-arrhythmia-database-1.0.0/
+
+# ACDC MRI dataset
+MRI/ACDC/database/training/
+MRI/ACDC/database/testing/
+MRI/ACDC/database/processed/
+
+# --------------------- Model Weights & Checkpoints ---------------------
+*.h5
+*.hdf5
+*.keras
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.npy
+*.npz
+!requirements*.txt
+
+# Checkpoint directories
+checkpoints/
+**/checkpoints/
+outputs/
+outputs_*/
+
+# --------------------- Logs & Results ---------------------
+*.log
+logs/
+tensorboard/
+wandb/
+
+# Training outputs (keep structure, ignore contents)
+**/training_history.json
+**/evaluation_results.json
+
+# --------------------- Media ---------------------
+# Large images (keep small ones for README)
+# *.png
+# *.jpg
+# *.jpeg
+
+# Video files
+*.mp4
+*.avi
+*.mov
+
+# --------------------- Database ---------------------
+*.sqlite3
+*.db
+
+# --------------------- Environment ---------------------
+.env
+.env.local
+*.env
+
+# --------------------- Node.js (Frontend) ---------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+frontend/build/
+
+# --------------------- Temporary ---------------------
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+
+# --------------------- Raw Data (user should download) ---------------------
+*.dat
+*.hea
+*.atr
+*.xws
+*.gz
+
+# --------------------- Keep these ---------------------
+!.gitkeep
+!README.md
+!requirements.txt
+!package.json
+!package-lock.json
+

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "medical_ai",
+			"path": "."
+		},
+		{
+			"name": "mitbih_database",
+			"path": "../archive/mitbih_database"
+		}
+	],
+	"settings": {}
+}

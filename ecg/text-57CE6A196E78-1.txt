@@ -1,0 +1,36 @@
+1.	Add ECG signal denoising before training.
+Use a simple high-pass filter OR a wavelet denoising function.
+Example options you may use:
+– SciPy high-pass filter (cutoff ~0.5 Hz)
+– PyWavelets wavelet denoise (pywt.threshold)
+After denoising, keep the same input shape as before.
+	2.	Ensure consistent tensor shape for CNNs.
+Reshape (num_beats, 301, 2) into (num_beats, 301, 2) for TensorFlow Conv1D, and if needed add a line to enforce float32 dtype.
+(The idea is: models expect channels-last format and clean numeric type.)
+	3.	Use a stronger 1-D CNN architecture similar to ones used in top ECG papers.
+Replace my model with:
+	•	Conv1D(32, kernel 5) + BatchNorm + ReLU
+	•	MaxPool1D
+	•	Conv1D(64, kernel 5) + BatchNorm + ReLU
+	•	MaxPool1D
+	•	Conv1D(128, kernel 3) + BatchNorm + ReLU
+	•	GlobalAveragePooling1D
+	•	Dense(128, relu)
+	•	Dropout(0.5)
+	•	Dense(num_classes, softmax)
+Use Adam(1e-3) and sparse_categorical_crossentropy.
+	4.	Split the dataset properly to avoid patient leakage.
+Instead of random train/test splits, split by record ID.
+I have no record IDs stored, so generate a split based on chunking:
+	•	Assign the first 70% of samples to training
+	•	The remaining 30% to testing
+(This simulates an inter-record split used in proper MIT-BIH studies.)
+	5.	Add training visualizations the project uses:
+	•	Plot training & validation accuracy
+	•	Plot training & validation loss
+	•	Save these plots as images
+	•	Compute and plot a confusion matrix after testing
+	6.	Add optional model checkpointing:
+Add a ModelCheckpoint callback to save the best model weights automatically.
+	7.	Keep all my existing loading of X.npy and y.npy.
+Only add the steps above. No changes to preprocessing or merging logic.
